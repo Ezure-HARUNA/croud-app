@@ -24,7 +24,7 @@ const Form = (props) => {
     
     
     return (
-        <form action="submit" onSubmit={(e)=>{handleSubmit(e)}}>  {/*onSubmit*/}
+        <form type="submit" onSubmit={(e)=>{handleSubmit(e)}}> 
             {/* <imput type="submit" title="text"></imput> */}
             {/* 名前 */}
             <TextField  name="title" id="standard-basic" label="名前" />
@@ -48,7 +48,7 @@ const Form = (props) => {
                 <MenuItem value={30}>30</MenuItem>
                 <MenuItem value={31}>31</MenuItem>
             </Select>
-            <Button variant="contained" color="primary" startIcon={<PersonAddIcon />}
+            <Button type="submit" variant="contained" color="primary" startIcon={<PersonAddIcon />}
       >        追加
             </Button>
         </form>

@@ -14,7 +14,7 @@ const App = () => {
         <>
             <h2>ユーザー情報管理用クラウドアプリ</h2>
             <Form usersInfo={usersInfo} setUsersinfo={setUsersInfo}></Form>
-            <List usersInfo={usersInfo} setUsersinfo={setUsersInfo}></List> 
+            <List usersInfo={usersInfo} setUsersInfo={setUsersInfo}></List> 
         </>
     )
 }
