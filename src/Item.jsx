@@ -33,9 +33,9 @@ const Item = (props) => {
     //完了したものに一重線をひく
     let pTagComplete
     if (isDone) {
-        pTagComplete=<P>{props.userInfo.name}{props.userInfo.age}</P>
+        pTagComplete=<P>{props.nameInfo}{props.ageInfo.age}</P>
     } else {
-        pTagComplete=<p>{props.userInfo.name}{props.userInfo.age}</p>
+        pTagComplete=<p>{props.nameInfo.name}{props.ageInfo.age}</p>
     }
     
 
