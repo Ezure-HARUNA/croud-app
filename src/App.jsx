@@ -4,10 +4,10 @@ import List from "./List"
 
 
 const App = () => {
-    const[usersInfo, setUsersInfo] =React.useState({
+    const[usersInfo, setUsersInfo] =React.useState([{
         name:"山田太郎", age:20
         
-})
+}])
     //編集
     /*
     const[userInfo, setUserInfo] =React.useState()

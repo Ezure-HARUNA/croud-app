@@ -33,9 +33,9 @@ const Item = (props) => {
     //完了したものに一重線をひく
     let pTagComplete
     if (isDone) {
-        pTagComplete=<P>{props.userInfo}</P>
+        pTagComplete=<P>{props.userInfo.name}{props.userInfo.age}</P>
     } else {
-        pTagComplete=<p>{props.userInfo}</p>
+        pTagComplete=<p>{props.userInfo.name}{props.userInfo.age}</p>
     }
     
 
@@ -63,7 +63,7 @@ const Item = (props) => {
             {/* 編集 */}
             {/* {editIt ? <EditForm changeText={changeText} value={props.desc}/> : <p>{props.desc}</p>} */}
             {/* <p>{userInfo}</p> */}
-            <button onClick={handleIsDone}>{(e)=>{isDoneState(e)}}</button>
+            <button onClick={handleIsDone}>{isDoneState}</button>
             <button onClick={handleDelete}>削除</button>
             <button >編集</button>
             {/* 編集追加　 onClick={toggleEditForm} */}
