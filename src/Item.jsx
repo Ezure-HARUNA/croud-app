@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+//import EditForm from "./EditForm"
 
 //一重線のスタイル
 const P = styled.p`
@@ -50,15 +51,22 @@ const Item = (props) => {
 
 
     //編集機能
-
+    //onClickとonSubmitを使う？
+    //const [editIt, setEditIt] = React.useState(false);
+    //const toggleEditForm = () => setEditIt(!editIt);
+    //const changeText = props.changeText;
+    
 
     return (
         <li>
             {pTagComplete}
-            {/* <p>{userInfo}</p> */}
-            <button onClick={handleIsDone}>{isDoneState}</button>
-            <button onClick={handleDelete}>削除</button>
             {/* 編集 */}
+            {/* {editIt ? <EditForm changeText={changeText} value={props.desc}/> : <p>{props.desc}</p>} */}
+            {/* <p>{userInfo}</p> */}
+            <button onClick={handleIsDone}>{(e)=>{isDoneState(e)}}</button>
+            <button onClick={handleDelete}>削除</button>
+            <button >編集</button>
+            {/* 編集追加　 onClick={toggleEditForm} */}
         </li>
     )
 }

@@ -30,7 +30,7 @@ const Form = (props) => {
             <TextField  name="title" id="standard-basic" label="名前" />
 
             {/* 年齢（選択） */}
-            <InputLabel id="demo-simple-select-autowidth-label">年齢</InputLabel>
+            <InputLabel name="title" id="demo-simple-select-autowidth-label">年齢</InputLabel>
             <Select>
                 <MenuItem value="">
                     <em>-</em>
