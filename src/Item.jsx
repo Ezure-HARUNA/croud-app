@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-//import EditForm from "./EditForm"
+import EditForm from "./EditForm"
 
 //一重線のスタイル
 const P = styled.p`
@@ -58,28 +58,42 @@ const Item = (props) => {
 
 
     //編集機能
-    /*
+    
     const[isEdit, setIsEdit] =React.useState(false)
-    const handleIsEdit =() => {
+    const handleIsEdit =(e) => {
         if (isEdit){   //setEdit === trueと同じ意味
             setIsEdit(false)
         } else {
             setIsEdit(true)
         }
+        e.preventDefault()
+        const editInfos = props.usersInfo.slice()
+
+        /////////????????////////
+        editInfos.isEdit = true
+        //editTodosでsetUsersInfoを更新
+        props.setUsersInfo(editInfos)
     }
 
-    const handleIsEdit =()=> {
-        const editInfos = props.usersInfo.slice()
-        editTodos[id].isEdit = true
+
+    /////////??????????????//////////
+    const handleEditComplete=(e, id)=> {
+		const editedTodos = this.state.todos.slice()
+		const title = e.target.title.value
+		const desc = e.target.desc.value
+		editedTodos[id].title = title
+		editedTodos[id].desc = desc
+		editedTodos[id].isEdit = false
 		this.setState({
-			todos : editTodos
+			todos : editedTodos
 		})
-    //onClickとonSubmitを使う？
-    //const [editIt, setEditIt] = React.useState(false);
-    //const toggleEditForm = () => setEditIt(!editIt);
-    //const changeText = props.changeText;
+	}
+　　　
     
-     */
+    
+        
+
+
     return (
         <li>
             {pTagName}
@@ -89,8 +103,19 @@ const Item = (props) => {
             {/* <p>{userInfo}</p> */}
             <button onClick={handleIsDone}>{isDoneState}</button>
             <button onClick={handleDelete}>削除</button>
-            {/* <button onClick={handleIsEdit}>編集</button> */}
+            <button onClick={handleIsEdit} >編集</button>
             {/* 編集追加　 onClick={toggleEditForm} */}
+            <EditForm
+                name={props.name}
+                age={props.age}
+                isEdit={isEdit}
+                handleIsDone={handleIsDone}
+                handleDelete={handleDelete}
+                handleIsEdit={handleIsEdit}
+                handleEditComplete={handleEditComplete}
+            >
+                
+            </EditForm>
         </li>
     )
 }

@@ -13,15 +13,28 @@ const Form = (props) => {
         e.preventDefault()
         //入力値を取り出す
         const name = e.target.name.value
+
+        //usersInfoをコピー
+        const newUsersInfo=props.usersInfo.slice()
+        //titleの追加
+        newUsersInfo.push(
+            name
+        )
+        //setUsersInfoでnewUsersInfoを更新
+        props.setUsersInfo(newUsersInfo)
+    }
+
+    const handleSelectChange =(e) =>{
+        e.preventDefault()
+        //入力値を取り出す
         const age = e.target.age.value
 
         //usersInfoをコピー
         const newUsersInfo=props.usersInfo.slice()
         //titleの追加
-        newUsersInfo.push({
-            name:name,
-            age:age,
-        })
+        newUsersInfo.push(
+            age
+        )
         //setUsersInfoでnewUsersInfoを更新
         props.setUsersInfo(newUsersInfo)
     }
@@ -31,11 +44,11 @@ const Form = (props) => {
         <form type="submit" onSubmit={(e)=>{handleSubmit(e)}}> 
             {/* <imput type="submit" title="text"></imput> */}
             {/* 名前 */}
-            <TextField  name="name" id="standard-basic" label="name" />
+            <TextField  name="name" id="standard-basic" label="名前" />
 
             {/* 年齢（選択） */}
-            <InputLabel name="age" id="demo-simple-select-autowidth-label">age</InputLabel>
-            <Select>
+            <InputLabel name="age" label="age" id="demo-simple-select-autowidth-label">年齢</InputLabel>
+            <Select onChange={(e)=>{handleSelectChange(e)}}>
                 <MenuItem value="">
                     <em>-</em>
                 </MenuItem>
