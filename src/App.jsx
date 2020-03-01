@@ -12,14 +12,7 @@ const App = () => {
              name:"佐藤花子", age:30
         }
 ])
-    //編集
-    /*
-    const[userInfo, setUserInfo] =React.useState()
-    const changeText = (pos, value) => {
-        const newTodos = usersInfo.map((e, i) => i === pos ? value : e);
-        setUserInfo(newTodos);
-    }
-    */
+    
 
     return (
         <>
@@ -28,7 +21,6 @@ const App = () => {
             <List 
                 usersInfo={usersInfo} 
                 setUsersInfo={setUsersInfo} 
-            
             ></List> 
             {/* 後で編集追加 　changeText={changeText}*/}
         </>

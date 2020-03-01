@@ -29,13 +29,9 @@ background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
 `;
 
 const EditForm =(props)=>{
-  //const handleIsDone = this.props.handleIsDone
   let info
   const handleEditComplete=(e)=> {
-    e.preventDefault(e)
-    const editedInfos = props.usersInfo.slice()
-
-		props.setUsersInfo(editedInfos)
+   
 	}
   if (props.isEdit === true){
     info=

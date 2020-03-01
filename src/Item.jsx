@@ -42,16 +42,16 @@ const Item = (props) => {
     //完了したものに一重線をひく
     let pTagName
     if (isDone) {
-        pTagName=<P>{props.name}</P>
+        pTagName=<P>{props.userInfo.name}</P>
     } else {
-        pTagName=<p>{props.name}</p>
+        pTagName=<p>{props.userInfo.name}</p>
     }
 
     let pTagAge
     if (isDone) {
-        pTagAge=<P>{props.age}</P>
+        pTagAge=<P>{props.userInfo.age}</P>
     } else {
-        pTagAge=<p>{props.age}</p>
+        pTagAge=<p>{props.userInfo.age}</p>
     }
     
 
@@ -82,6 +82,8 @@ const Item = (props) => {
         editInfos.isEdit = true
         //editTodosでsetUsersInfoを更新
         props.setUsersInfo(editInfos)
+
+    
     }
 
 
