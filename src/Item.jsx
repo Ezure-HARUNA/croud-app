@@ -1,10 +1,21 @@
 import React from "react"
 import styled from "styled-components"
 import EditForm from "./EditForm"
+import Button from '@material-ui/core/Button';
+import DoneIcon from '@material-ui/icons/Done';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 //一重線のスタイル
 const P = styled.p`
 text-decoration: line-through;
+`
+
+const Container =styled.form`
+padding:20px;
+.button {
+    padding:6px!important;
+}
 `
 
 const Item = (props) => {
@@ -79,10 +90,10 @@ const Item = (props) => {
     /////////??????????????//////////
     const handleEditComplete=(e, id)=> {
 		const editedTodos = this.state.todos.slice()
-		const title = e.target.title.value
-		const desc = e.target.desc.value
-		editedTodos[id].title = title
-		editedTodos[id].desc = desc
+		const name = e.target.name.value
+		const age = e.target.age.value
+		editedTodos[id].name = name
+		editedTodos[id].age = age
 		editedTodos[id].isEdit = false
 		this.setState({
 			todos : editedTodos
@@ -95,29 +106,34 @@ const Item = (props) => {
 
 
     return (
-        <li>
-            {pTagName}
-            {pTagAge}
+        <Container>
+            {/* {pTagName} */}
+            {/* {pTagAge} */}
             {/* 編集 */}
             {/* {editIt ? <EditForm changeText={changeText} value={props.desc}/> : <p>{props.desc}</p>} */}
             {/* <p>{userInfo}</p> */}
-            <button onClick={handleIsDone}>{isDoneState}</button>
-            <button onClick={handleDelete}>削除</button>
-            <button onClick={handleIsEdit} >編集</button>
+            {/* <Button onClick={handleIsDone} type="submit" variant="contained" startIcon={<DoneIcon />} */}
+            {/* > {isDoneState}</Button> */}
+            {/* <Button variant="contained" onClick={handleDelete} startIcon={<DeleteIcon />}>削除</Button> */}
+            {/* <Button  variant="contained" onClick={handleIsEdit} startIcon={<EditIcon />}>編集</Button> */}
             {/* 編集追加　 onClick={toggleEditForm} */}
             <EditForm
-                name={props.name}
-                age={props.age}
+                pTagName={pTagName}
+                pTagAge={pTagAge}
                 isEdit={isEdit}
                 handleIsDone={handleIsDone}
                 handleDelete={handleDelete}
                 handleIsEdit={handleIsEdit}
+                isDoneState={isDoneState}
                 handleEditComplete={handleEditComplete}
+
             >
                 
             </EditForm>
-        </li>
+        </Container>
     )
 }
+
+
 
 export default Item

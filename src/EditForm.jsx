@@ -3,6 +3,9 @@ import styled from "styled-components"
 import Button from "@material-ui/core/Button"
 import Paper from "@material-ui/core/Paper"
 import TextField from "@material-ui/core/TextField"
+import DoneIcon from '@material-ui/icons/Done';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 const Li = styled.li`
 list-style: none;
@@ -17,28 +20,36 @@ list-style: none;
 
 const EditForm =(props)=>{
   //const handleIsDone = this.props.handleIsDone
-  let todo
+  let info
   if (props.isEdit === true){
-    todo=
+    info=
     <form onSubmit={(e)=>{
         e.preventDefault()
         props.handleEditComplete(e, props.id)}}>
         <TextField className="textField" type="text" label="名前" name="name" placeholder={props.name} />
         <TextField className="textField" type="text" label="年齢" name="age" placeholder={props.age} />
-        <Button type="submit" variant="contained">編集完了</Button>
+        <Button type="submit"  variant="contained">編集完了</Button>
     </form>
-  } else{
-    todo=
+  } 
+  
+  else{
+    info=
     <div>
-       <p>{props.name}</p>
-       <p>{props.age}</p>
+       <p>{props.pTagName}</p>
+       <p>{props.pTagAge}</p>
+       <Button onClick={props.handleIsDone} variant="contained" startIcon={<DoneIcon />}>{props.isDoneState}</Button>
+       <Button onClick={props.handleDelete} variant="contained" startIcon={<DeleteIcon />}>削除</Button>
+       <Button onClick={props.handleIsEdit} variant="contained" startIcon={<EditIcon />}>編集</Button>
+
     </div>
   }
+  
+  
   return (
     
       <Li>
           <Paper className="paper">
-              {todo}
+              {info}
           </Paper>
       </Li>
   )
@@ -46,36 +57,4 @@ const EditForm =(props)=>{
 }
 
 export default EditForm
-/*
-export default class EditForm extends React.Component {
-    render() {
-        //const buttonText = this.props.isDone ? "戻す" : "完了" 
-        //const id = this.props.id
-        const handleIsDone = this.props.handleIsDone
-        let todo
-        if (this.props.isEdit === true) {
-            todo = 
-            <form onSubmit={(e)=>{
-                e.preventDefault()
-                this.props.handleEditComplete(e, this.props.id)}}>
-                <TextField className="textField" type="text" label="name" name="name" placeholder={this.props.name} />
-                <TextField className="textField" type="text" label="age" name="age" placeholder={this.props.age} />
-                <Button type="submit" variant="contained">編集完了</Button>
-            </form>
-        } else {
-            todo = 
-            <div>
-               <p>{this.props.name}</p>
-              <p>{this.props.age}</p>
-            </div>
-        }
-        return (
-            <Li>
-                <Paper className="paper">
-                    {todo}
-                </Paper>
-            </Li>
-        )
-    }
-}
-*/
+

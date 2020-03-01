@@ -1,12 +1,12 @@
 import React from "react"
-//import styled from "styled-components"
+import styled from "styled-components"
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-
+ 
 
 const Form = (props) => {
     const handleSubmit =(e) =>{
@@ -65,9 +65,11 @@ const Form = (props) => {
                 <MenuItem value={30}>30</MenuItem>
                 <MenuItem value={31}>31</MenuItem>
             </Select>
-            <Button type="submit" variant="contained" color="primary" startIcon={<PersonAddIcon />}
+        
+            <Button type="submit" variant="contained"  startIcon={<PersonAddIcon />}
       >        追加
             </Button>
+            
         </form>
     )
 }
