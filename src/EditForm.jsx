@@ -21,11 +21,20 @@ list-style: none;
 const EditForm =(props)=>{
   //const handleIsDone = this.props.handleIsDone
   let info
+  const handleEditComplete=(e)=> {
+    e.preventDefault(e)
+    const editedInfos = props.usersInfo.slice()
+    
+
+
+  
+
+		props.setUsersInfo(editedInfos)
+	}
   if (props.isEdit === true){
     info=
     <form onSubmit={(e)=>{
-        e.preventDefault()
-        props.handleEditComplete(e, props.id)}}>
+        handleEditComplete(e)}}>
         <TextField className="textField" type="text" label="名前" name="name" placeholder={props.name} />
         <TextField className="textField" type="text" label="年齢" name="age" placeholder={props.age} />
         <Button type="submit"  variant="contained">編集完了</Button>

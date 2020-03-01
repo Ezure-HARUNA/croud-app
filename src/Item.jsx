@@ -87,19 +87,8 @@ const Item = (props) => {
     }
 
 
-    /////////??????????????//////////
-    const handleEditComplete=(e, id)=> {
-		const editedInfos = props.todos.slice()
-		const name = e.target.name.value
-		const age = e.target.age.value
-		editedInfos[id].name = name
-		editedInfos[id].age = age
-		editedInfos[id].isEdit = false
-		this.setState({
-			todos : editedInfos
-        })
-        props.setUsersInfo(editedInfos)
-	}
+    
+   
 　　　
     
     
@@ -126,7 +115,7 @@ const Item = (props) => {
                 handleDelete={handleDelete}
                 handleIsEdit={handleIsEdit}
                 isDoneState={isDoneState}
-                handleEditComplete={handleEditComplete}
+                //handleEditComplete={handleEditComplete}
 
             >
                 
