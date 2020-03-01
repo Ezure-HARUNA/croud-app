@@ -31,11 +31,18 @@ const Item = (props) => {
     }
 
     //完了したものに一重線をひく
-    let pTagComplete
+    let pTagName
     if (isDone) {
-        pTagComplete=<P>{props.nameInfo}{props.ageInfo.age}</P>
+        pTagName=<P>{props.name}</P>
     } else {
-        pTagComplete=<p>{props.nameInfo.name}{props.ageInfo.age}</p>
+        pTagName=<p>{props.name}</p>
+    }
+
+    let pTagAge
+    if (isDone) {
+        pTagAge=<P>{props.age}</P>
+    } else {
+        pTagAge=<p>{props.age}</p>
     }
     
 
@@ -51,21 +58,38 @@ const Item = (props) => {
 
 
     //編集機能
+    /*
+    const[isEdit, setIsEdit] =React.useState(false)
+    const handleIsEdit =() => {
+        if (isEdit){   //setEdit === trueと同じ意味
+            setIsEdit(false)
+        } else {
+            setIsEdit(true)
+        }
+    }
+
+    const handleIsEdit =()=> {
+        const editInfos = props.usersInfo.slice()
+        editTodos[id].isEdit = true
+		this.setState({
+			todos : editTodos
+		})
     //onClickとonSubmitを使う？
     //const [editIt, setEditIt] = React.useState(false);
     //const toggleEditForm = () => setEditIt(!editIt);
     //const changeText = props.changeText;
     
-
+     */
     return (
         <li>
-            {pTagComplete}
+            {pTagName}
+            {pTagAge}
             {/* 編集 */}
             {/* {editIt ? <EditForm changeText={changeText} value={props.desc}/> : <p>{props.desc}</p>} */}
             {/* <p>{userInfo}</p> */}
             <button onClick={handleIsDone}>{isDoneState}</button>
             <button onClick={handleDelete}>削除</button>
-            <button >編集</button>
+            {/* <button onClick={handleIsEdit}>編集</button> */}
             {/* 編集追加　 onClick={toggleEditForm} */}
         </li>
     )

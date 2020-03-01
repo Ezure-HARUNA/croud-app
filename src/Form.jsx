@@ -12,12 +12,16 @@ const Form = (props) => {
     const handleSubmit =(e) =>{
         e.preventDefault()
         //入力値を取り出す
-        const title = e.target.title.value
+        const name = e.target.name.value
+        const age = e.target.age.value
 
         //usersInfoをコピー
         const newUsersInfo=props.usersInfo.slice()
         //titleの追加
-        newUsersInfo.push(title)
+        newUsersInfo.push({
+            name:name,
+            age:age,
+        })
         //setUsersInfoでnewUsersInfoを更新
         props.setUsersInfo(newUsersInfo)
     }
@@ -27,10 +31,10 @@ const Form = (props) => {
         <form type="submit" onSubmit={(e)=>{handleSubmit(e)}}> 
             {/* <imput type="submit" title="text"></imput> */}
             {/* 名前 */}
-            <TextField  name="title" id="standard-basic" label="名前" />
+            <TextField  name="name" id="standard-basic" label="name" />
 
             {/* 年齢（選択） */}
-            <InputLabel name="title" id="demo-simple-select-autowidth-label">年齢</InputLabel>
+            <InputLabel name="age" id="demo-simple-select-autowidth-label">age</InputLabel>
             <Select>
                 <MenuItem value="">
                     <em>-</em>
