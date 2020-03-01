@@ -6,7 +6,7 @@ import TextField from "@material-ui/core/TextField"
 import DoneIcon from '@material-ui/icons/Done';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
-
+import { StylesProvider } from '@material-ui/styles';
 const Li = styled.li`
 list-style: none;
 .paper {
@@ -24,10 +24,6 @@ const EditForm =(props)=>{
   const handleEditComplete=(e)=> {
     e.preventDefault(e)
     const editedInfos = props.usersInfo.slice()
-    
-
-
-  
 
 		props.setUsersInfo(editedInfos)
 	}
