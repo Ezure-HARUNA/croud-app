@@ -13,9 +13,7 @@ text-decoration: line-through;
 
 const Container =styled.form`
 padding:20px;
-.button {
-    padding:6px!important;
-}
+
 `
 
 const Item = (props) => {

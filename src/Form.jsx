@@ -8,6 +8,22 @@ import Button from '@material-ui/core/Button';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
  
 
+const StyledButton = styled(Button)`
+background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+  border-radius: 3px;
+  border: 0;
+  color: white;
+  height: 48px;
+  padding: 0 30px;
+  box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+  margin-left:10px;
+  margin-top:-15px;
+`;
+
+const StyledSelect = styled(Select) `
+width:195px;
+`
+
 const Form = (props) => {
     const handleSubmit =(e) =>{
         e.preventDefault()
@@ -48,7 +64,7 @@ const Form = (props) => {
 
             {/* 年齢（選択） */}
             <InputLabel name="age" label="age" id="demo-simple-select-autowidth-label">年齢</InputLabel>
-            <Select onChange={(e)=>{handleSelectChange(e)}}>
+            <StyledSelect onChange={(e)=>{handleSelectChange(e)}}>
                 <MenuItem value="">
                     <em>-</em>
                 </MenuItem>
@@ -64,11 +80,11 @@ const Form = (props) => {
                 <MenuItem value={29}>29</MenuItem>
                 <MenuItem value={30}>30</MenuItem>
                 <MenuItem value={31}>31</MenuItem>
-            </Select>
+            </StyledSelect>
         
-            <Button type="submit" variant="contained"  startIcon={<PersonAddIcon />}
+            <StyledButton type="submit" variant="contained"  startIcon={<PersonAddIcon />}
       >        追加
-            </Button>
+            </StyledButton>
             
         </form>
     )

@@ -13,9 +13,9 @@ const List = (props) =>{
                 id={id} 
                 usersInfo={props.usersInfo} 
                 setUsersInfo={props.setUsersInfo}
-                name={props.name}
-                age={props.age}
-                
+                name={userInfo.name}
+                age={userInfo.age}
+
                 > 
             </Item>
             //後で編集用にchangeText={value => props.changeText(id, value)}追加する
