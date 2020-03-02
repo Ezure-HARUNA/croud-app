@@ -30,18 +30,24 @@ const Form = (props) => {
         //入力値を取り出す
         const name = e.target.name.value
 
+        const age =e.target.age.value
+
         //usersInfoをコピー
         const newUsersInfo=props.usersInfo.slice()
         //titleの追加
         newUsersInfo.push(
-            name
+           { name: name, age: age}
         )
         //setUsersInfoでnewUsersInfoを更新
         props.setUsersInfo(newUsersInfo)
     }
 
+    //onChangeは変更ごとの呼び出されてしまう
+
+    /*
     const handleSelectChange =(e) =>{
         e.preventDefault()
+        console.log(e);
         //入力値を取り出す
         const age = e.target.age.value
 
@@ -54,6 +60,7 @@ const Form = (props) => {
         //setUsersInfoでnewUsersInfoを更新
         props.setUsersInfo(newUsersInfo)
     }
+    */
     
     
     return (
@@ -63,8 +70,9 @@ const Form = (props) => {
             <TextField  name="name" id="standard-basic" label="名前" />
 
             {/* 年齢（選択） */}
-            <InputLabel name="age" label="age" id="demo-simple-select-autowidth-label">年齢</InputLabel>
-            <StyledSelect onChange={(e)=>{handleSelectChange(e)}}>
+            <TextField name="age" label="年齢"　id="standard-basic"/>
+            {/* <InputLabel  id="demo-simple-select-autowidth-label">年齢</InputLabel>
+            <StyledSelect name="age" label="age" onChange={(e)=>{handleSelectChange(e)}}>
                 <MenuItem value="">
                     <em>-</em>
                 </MenuItem>
@@ -80,7 +88,7 @@ const Form = (props) => {
                 <MenuItem value={29}>29</MenuItem>
                 <MenuItem value={30}>30</MenuItem>
                 <MenuItem value={31}>31</MenuItem>
-            </StyledSelect>
+            </StyledSelect> */}
         
             <StyledButton type="submit" variant="contained"  startIcon={<PersonAddIcon />}
       >        追加

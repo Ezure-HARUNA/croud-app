@@ -76,13 +76,14 @@ const Item = (props) => {
             setIsEdit(true)
         }
         e.preventDefault()
-        const editInfos = props.usersInfo.slice()
+        //const editInfos = props.usersInfo.slice()
 
         /////////????????////////
+        /*
         editInfos.isEdit = true
         //editTodosでsetUsersInfoを更新
         props.setUsersInfo(editInfos)
-
+*/
     
     }
 
@@ -115,6 +116,12 @@ const Item = (props) => {
                 handleDelete={handleDelete}
                 handleIsEdit={handleIsEdit}
                 isDoneState={isDoneState}
+                editName={props.userInfo.name}
+                editAge={props.userInfo.age}
+                id={props.id}
+                usersInfo={props.usersInfo}
+                setUsersInfo={props.setUsersInfo}
+                
                 //handleEditComplete={handleEditComplete}
 
             >

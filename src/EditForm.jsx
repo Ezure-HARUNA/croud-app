@@ -31,18 +31,40 @@ background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
 const EditForm =(props)=>{
   let info
   const handleEditComplete=(e)=> {
-   
+　　
+    e.preventDefault()
+    //前のステートのコピー
+
+　　const newEdit =props.usersInfo.slice()
+    //山田太郎を変更したと仮定して、変更後の値を取り出す
+    const name =e.target.name.value
+    const age =e.target.age.value
+    //該当する部分を変更する(連想は配列の書き換え)
+    //連想配列を書き換える時は、「連想配列名.キー＝書き換え内容」
+    newEdit[props.id].name=name
+    newEdit[props.id].age=age
+
+    //newEditは[{} , {}] (usersInfo)
+    //newEditの該当する部分は[{ここ} , {}]　ここを取り出す
+    //koko,に該当するのはnewEditの配列の一個目の要素
+    //newEdit配列の一個目の要素である連想はいつのnameとageを変更
+
+    //更新
+    props.setUsersInfo(newEdit)
+    
+    
+    //submitが起きたときに変更後の値に更新
 	}
   if (props.isEdit === true){
     info=
-    <form onSubmit={(e)=>{
-        handleEditComplete(e)}}>
-        <TextField className="textField" type="text" label="名前" name="name" placeholder={props.name} />
-        <TextField className="textField" type="text" label="年齢" name="age" placeholder={props.age} />
-        <StyledButton injectFirst type="submit"  variant="contained">編集完了</StyledButton>
+    <form >
+        <TextField className="textField" type="text" label="編集前の名前"  name="name" placeholder={props.name} />
+        <TextField className="textField" type="text" label="編集前の年齢" value={props.editAge} name="age" placeholder={props.age} />
+        <StyledButton injectFirst onSubmit={(e)=>{
+        handleEditComplete(e)}}　type="submit"  variant="contained">編集完了</StyledButton>
     </form>
   } 
-  
+ //onClick={props.handleIsEdit} 
   else{
     info=
     <div>
