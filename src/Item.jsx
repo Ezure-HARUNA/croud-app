@@ -1,15 +1,17 @@
 import React from "react"
 import styled from "styled-components"
 import EditForm from "./EditForm"
-import Button from '@material-ui/core/Button';
-import DoneIcon from '@material-ui/icons/Done';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
+//import Button from '@material-ui/core/Button';
+//import DoneIcon from '@material-ui/icons/Done';
+//import DeleteIcon from '@material-ui/icons/Delete';
+//import EditIcon from '@material-ui/icons/Edit';
 
 //一重線のスタイル
+/*
 const P = styled.p`
 text-decoration: line-through;
 `
+*/
 
 const Container =styled.form`
 padding:20px;
@@ -30,7 +32,7 @@ const Item = (props) => {
         }
     }
     
-
+    /*
     //完了・戻すの切り替え（表示）
     let isDoneState
     if (isDone) {
@@ -38,11 +40,13 @@ const Item = (props) => {
     } else {
         isDoneState = "完了"
     }
+    */
 
+    /*
     //完了したものに一重線をひく
     let pTagName
     if (isDone) {
-        pTagName=<P>{props.userInfo.name}</P>
+        pTagName=<P>{props.userInfo.name}</P>  
     } else {
         pTagName=<p>{props.userInfo.name}</p>
     }
@@ -53,6 +57,7 @@ const Item = (props) => {
     } else {
         pTagAge=<p>{props.userInfo.age}</p>
     }
+    */
     
 
     //削除ボタンの処理
@@ -73,7 +78,7 @@ const Item = (props) => {
         if (isEdit){   //setEdit === trueと同じ意味
             setIsEdit(false)
         } else {
-            setIsEdit(true)
+            setIsEdit(true)  
         }
         e.preventDefault()
         //const editInfos = props.usersInfo.slice()
@@ -83,7 +88,7 @@ const Item = (props) => {
         editInfos.isEdit = true
         //editTodosでsetUsersInfoを更新
         props.setUsersInfo(editInfos)
-*/
+        */
     
     }
 
@@ -109,18 +114,19 @@ const Item = (props) => {
             {/* <Button  variant="contained" onClick={handleIsEdit} startIcon={<EditIcon />}>編集</Button> */}
             {/* 編集追加　 onClick={toggleEditForm} */}
             <EditForm
-                pTagName={pTagName}
-                pTagAge={pTagAge}
+                //pTagName={pTagName}
+                //pTagAge={pTagAge}
                 isEdit={isEdit}
                 handleIsDone={handleIsDone}
                 handleDelete={handleDelete}
                 handleIsEdit={handleIsEdit}
-                isDoneState={isDoneState}
+                //isDoneState={isDoneState}
                 editName={props.userInfo.name}
                 editAge={props.userInfo.age}
                 id={props.id}
                 usersInfo={props.usersInfo}
                 setUsersInfo={props.setUsersInfo}
+                userInfo={props.userInfo}
                 
                 //handleEditComplete={handleEditComplete}
 

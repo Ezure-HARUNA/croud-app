@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
+//import MenuItem from '@material-ui/core/MenuItem';
+//import InputLabel from '@material-ui/core/InputLabel';
+//import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
  
@@ -20,9 +20,11 @@ background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
   margin-top:-15px;
 `;
 
+/*
 const StyledSelect = styled(Select) `
 width:195px;
 `
+*/
 
 const Form = (props) => {
     const handleSubmit =(e) =>{

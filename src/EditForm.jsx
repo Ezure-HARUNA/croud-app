@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Button from "@material-ui/core/Button"
 import Paper from "@material-ui/core/Paper"
 import TextField from "@material-ui/core/TextField"
-import DoneIcon from '@material-ui/icons/Done';
+//import DoneIcon from '@material-ui/icons/Done';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 //import { Button } from '@material-ui/core';
@@ -46,7 +46,7 @@ const EditForm =(props)=>{
 
     //newEditは[{} , {}] (usersInfo)
     //newEditの該当する部分は[{ここ} , {}]　ここを取り出す
-    //koko,に該当するのはnewEditの配列の一個目の要素
+    //ここ,に該当するのはnewEditの配列の一個目の要素
     //newEdit配列の一個目の要素である連想はいつのnameとageを変更
 
     //更新
@@ -57,20 +57,20 @@ const EditForm =(props)=>{
 	}
   if (props.isEdit === true){
     info=
-    <form >
-        <TextField className="textField" type="text" label="編集前の名前"  name="name" placeholder={props.name} />
-        <TextField className="textField" type="text" label="編集前の年齢" value={props.editAge} name="age" placeholder={props.age} />
-        <StyledButton injectFirst onSubmit={(e)=>{
-        handleEditComplete(e)}}　type="submit"  variant="contained">編集完了</StyledButton>
+    <form type="submit" id="target" injectFirst onSubmit={(e)=>{
+      handleEditComplete(e)}}>
+        <TextField className="textField" type="text" label="編集前の名前"  name="name" defaultValue={props.editName} placeholder={props.name} />
+        <TextField className="textField" type="text" label="編集前の年齢" defaultValue={props.editAge} name="age" placeholder={props.age} />
+        <StyledButton type="submit" variant="contained">編集完了</StyledButton>
     </form>
   } 
  //onClick={props.handleIsEdit} 
   else{
     info=
     <div>
-       <p>{props.pTagName}</p>
-       <p>{props.pTagAge}</p>
-       <StyledButton injectFirst onClick={props.handleIsDone} variant="contained" startIcon={<DoneIcon />}>{props.isDoneState}</StyledButton>
+       <p>{props.editName}</p>
+       <p>{props.editAge}</p>
+       {/* <StyledButton injectFirst onClick={props.handleIsDone} variant="contained" startIcon={<DoneIcon />}>{props.isDoneState}</StyledButton> */}
        <StyledButton injectFirst onClick={props.handleDelete} variant="contained" startIcon={<DeleteIcon />}>削除</StyledButton>
        <StyledButton injectFirst onClick={props.handleIsEdit} variant="contained" startIcon={<EditIcon />}>編集</StyledButton>
 
