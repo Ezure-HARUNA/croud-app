@@ -44,7 +44,6 @@ const EditForm =(props)=>{
     //連想配列を書き換える時は、「連想配列名.キー＝書き換え内容」
     newEdit[props.id].name=name
     newEdit[props.id].age=age
-    newEdit[props.id].setIsEdit=false
 
     //newEditは[{} , {}] (usersInfo)
     //newEditの該当する部分は[{ここ} , {}]　ここを取り出す
@@ -52,7 +51,9 @@ const EditForm =(props)=>{
     //newEdit配列の一個目の要素である連想はいつのnameとageを変更
 
     //更新
+    props.setisEdit(false)
     props.setUsersInfo(newEdit)
+    
     
     
     //submitが起きたときに変更後の値に更新

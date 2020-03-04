@@ -117,7 +117,7 @@ const Item = (props) => {
                 //pTagName={pTagName}
                 //pTagAge={pTagAge}
                 isEdit={isEdit}
-                //setisEdit={props.setIsEdit}
+                setisEdit={setIsEdit}
                 handleIsDone={handleIsDone}
                 handleDelete={handleDelete}
                 handleIsEdit={handleIsEdit}
