@@ -29,6 +29,7 @@ background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
 `;
 
 const EditForm =(props)=>{
+
   let info
   const handleEditComplete=(e)=> {
 　　
@@ -43,6 +44,7 @@ const EditForm =(props)=>{
     //連想配列を書き換える時は、「連想配列名.キー＝書き換え内容」
     newEdit[props.id].name=name
     newEdit[props.id].age=age
+    newEdit[props.id].setIsEdit=false
 
     //newEditは[{} , {}] (usersInfo)
     //newEditの該当する部分は[{ここ} , {}]　ここを取り出す
@@ -59,17 +61,17 @@ const EditForm =(props)=>{
     info=
     <form type="submit" id="target" injectFirst onSubmit={(e)=>{
       handleEditComplete(e)}}>
-        <TextField className="textField" type="text" label="編集前の名前"  name="name" defaultValue={props.editName} placeholder={props.name} />
-        <TextField className="textField" type="text" label="編集前の年齢" defaultValue={props.editAge} name="age" placeholder={props.age} />
-        <StyledButton type="submit" variant="contained">編集完了</StyledButton>
+        <TextField className="textField" type="text" label="編集前の名前"  name="name" defaultValue={props.name} placeholder={props.name} />
+        <TextField className="textField" type="text" label="編集前の年齢" defaultValue={props.age} name="age" placeholder={props.age} />
+        <StyledButton type="submit" onSubmit={props.handleIsEdit} variant="contained">編集完了</StyledButton>
     </form>
   } 
  //onClick={props.handleIsEdit} 
   else{
     info=
     <div>
-       <p>{props.editName}</p>
-       <p>{props.editAge}</p>
+       <p>{props.name}</p>
+       <p>{props.age}</p>
        {/* <StyledButton injectFirst onClick={props.handleIsDone} variant="contained" startIcon={<DoneIcon />}>{props.isDoneState}</StyledButton> */}
        <StyledButton injectFirst onClick={props.handleDelete} variant="contained" startIcon={<DeleteIcon />}>削除</StyledButton>
        <StyledButton injectFirst onClick={props.handleIsEdit} variant="contained" startIcon={<EditIcon />}>編集</StyledButton>

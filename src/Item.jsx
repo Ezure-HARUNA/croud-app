@@ -117,12 +117,13 @@ const Item = (props) => {
                 //pTagName={pTagName}
                 //pTagAge={pTagAge}
                 isEdit={isEdit}
+                //setisEdit={props.setIsEdit}
                 handleIsDone={handleIsDone}
                 handleDelete={handleDelete}
                 handleIsEdit={handleIsEdit}
                 //isDoneState={isDoneState}
-                editName={props.userInfo.name}
-                editAge={props.userInfo.age}
+                name={props.userInfo.name}
+                age={props.userInfo.age}
                 id={props.id}
                 usersInfo={props.usersInfo}
                 setUsersInfo={props.setUsersInfo}
