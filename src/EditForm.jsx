@@ -3,10 +3,11 @@ import styled from "styled-components"
 import Button from "@material-ui/core/Button"
 import Paper from "@material-ui/core/Paper"
 import TextField from "@material-ui/core/TextField"
-//import DoneIcon from '@material-ui/icons/Done';
+import DoneIcon from '@material-ui/icons/Done';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
-//import { Button } from '@material-ui/core';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 const Li = styled.li`
 list-style: none;
 .paper {
@@ -17,6 +18,11 @@ list-style: none;
     display: block;
 }
 `
+
+const StyledSelect = styled(Select) `
+width:195px;
+`
+
 const StyledButton = styled(Button)`
 background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
   border-radius: 3px;
@@ -63,8 +69,25 @@ const EditForm =(props)=>{
     <form type="submit" id="target" injectFirst onSubmit={(e)=>{
       handleEditComplete(e)}}>
         <TextField className="textField" type="text" label="編集前の名前"  name="name" defaultValue={props.name} placeholder={props.name} />
-        <TextField className="textField" type="text" label="編集前の年齢" defaultValue={props.age} name="age" placeholder={props.age} />
-        <StyledButton type="submit" onSubmit={props.handleIsEdit} variant="contained">編集完了</StyledButton>
+        {/* <TextField className="textField" type="text" label="編集前の年齢" defaultValue={props.age} name="age" placeholder={props.age} /> */}
+        <StyledSelect name="age" label="編集前の年齢" defaultValue={props.age} name="age">
+                <MenuItem value="">
+                    <em>-</em>
+                </MenuItem>
+                <MenuItem value={20}>20</MenuItem>
+                <MenuItem value={21}>21</MenuItem>
+                <MenuItem value={22}>22</MenuItem>
+                <MenuItem value={23}>23</MenuItem>
+                <MenuItem value={24}>24</MenuItem>
+                <MenuItem value={25}>25</MenuItem>
+                <MenuItem value={26}>26</MenuItem>
+                <MenuItem value={27}>27</MenuItem>
+                <MenuItem value={28}>28</MenuItem>
+                <MenuItem value={29}>29</MenuItem>
+                <MenuItem value={30}>30</MenuItem>
+                <MenuItem value={31}>31</MenuItem>
+            </StyledSelect> 
+        <StyledButton type="submit" onSubmit={props.handleIsEdit} variant="contained" startIcon={<DoneIcon />}>編集完了</StyledButton>
     </form>
   } 
  //onClick={props.handleIsEdit} 

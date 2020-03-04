@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import TextField from '@material-ui/core/TextField';
-//import MenuItem from '@material-ui/core/MenuItem';
-//import InputLabel from '@material-ui/core/InputLabel';
-//import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
  
@@ -20,11 +20,11 @@ background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
   margin-top:-15px;
 `;
 
-/*
+
 const StyledSelect = styled(Select) `
 width:195px;
 `
-*/
+
 
 const Form = (props) => {
     const handleSubmit =(e) =>{
@@ -72,9 +72,9 @@ const Form = (props) => {
             <TextField  name="name" id="standard-basic" label="名前" />
 
             {/* 年齢（選択） */}
-            <TextField name="age" label="年齢"　id="standard-basic"/>
-            {/* <InputLabel  id="demo-simple-select-autowidth-label">年齢</InputLabel>
-            <StyledSelect name="age" label="age" onChange={(e)=>{handleSelectChange(e)}}>
+            {/* <TextField name="age" label="年齢"　id="standard-basic"/> */}
+             <InputLabel  id="demo-simple-select-autowidth-label">年齢</InputLabel>
+            <StyledSelect name="age" label="age" >
                 <MenuItem value="">
                     <em>-</em>
                 </MenuItem>
@@ -90,7 +90,7 @@ const Form = (props) => {
                 <MenuItem value={29}>29</MenuItem>
                 <MenuItem value={30}>30</MenuItem>
                 <MenuItem value={31}>31</MenuItem>
-            </StyledSelect> */}
+            </StyledSelect> 
         
             <StyledButton type="submit" variant="contained"  startIcon={<PersonAddIcon />}
       >        追加
